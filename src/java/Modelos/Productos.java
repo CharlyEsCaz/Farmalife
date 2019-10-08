@@ -68,7 +68,7 @@ public class Productos implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
-    private long precio;
+    private double precio;
     @Basic(optional = false)
     @NotNull
     @Column(name = "stock")
@@ -81,7 +81,7 @@ public class Productos implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "descuento")
-    private long descuento;
+    private double descuento;
 
     public Productos() {
     }
@@ -90,7 +90,7 @@ public class Productos implements Serializable {
         this.idproducto = idproducto;
     }
 
-    public Productos(Integer idproducto, String nombre, String descripcion, String laboratorio, String categoria, long precio, int stock, String imagen, long descuento) {
+    public Productos(Integer idproducto, String nombre, String descripcion, String laboratorio, String categoria, double precio, int stock, String imagen, double descuento) {
         this.idproducto = idproducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -142,11 +142,11 @@ public class Productos implements Serializable {
         this.categoria = categoria;
     }
 
-    public long getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -166,11 +166,11 @@ public class Productos implements Serializable {
         this.imagen = imagen;
     }
     
-    public long getDescuento() {
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(long descuento) {
+    public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
 
