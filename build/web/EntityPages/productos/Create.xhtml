@@ -84,6 +84,14 @@
                                <h:inputText id="imagen" value="#{productosController.selected.imagen}" title="#{bundle.CreateProductosTitle_imagen}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_imagen}"/>
                             </div>
                         </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateProductosLabel_descuento}" for="precio" /><br/>
+                                <small>Solo numeros. Ejemplo: 204.5</small><br/>
+                                <h:inputText id="descuento" value="#{productosController.selected.descuento}" title="#{bundle.CreateProductosTitle_descuento}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_descuento}"/>
+                            </div>
+                        </div>
                     </div>
                 </h:form>
             </ui:define>

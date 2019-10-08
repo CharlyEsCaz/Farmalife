@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Productos.findByCategoria", query = "SELECT p FROM Productos p WHERE p.categoria = :categoria")
     , @NamedQuery(name = "Productos.findByPrecio", query = "SELECT p FROM Productos p WHERE p.precio = :precio")
     , @NamedQuery(name = "Productos.findByStock", query = "SELECT p FROM Productos p WHERE p.stock = :stock")
-    , @NamedQuery(name = "Productos.findByImagen", query = "SELECT p FROM Productos p WHERE p.imagen = :imagen")})
+    , @NamedQuery(name = "Productos.findByImagen", query = "SELECT p FROM Productos p WHERE p.imagen = :imagen")
+    , @NamedQuery(name = "Productos.findByDescuento", query = "SELECT p FROM Productos p WHERE p.descuento = :descuento")})
 public class Productos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -77,6 +78,10 @@ public class Productos implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "imagen")
     private String imagen;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "descuento")
+    private long descuento;
 
     public Productos() {
     }
@@ -85,7 +90,7 @@ public class Productos implements Serializable {
         this.idproducto = idproducto;
     }
 
-    public Productos(Integer idproducto, String nombre, String descripcion, String laboratorio, String categoria, long precio, int stock, String imagen) {
+    public Productos(Integer idproducto, String nombre, String descripcion, String laboratorio, String categoria, long precio, int stock, String imagen, long descuento) {
         this.idproducto = idproducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -94,6 +99,7 @@ public class Productos implements Serializable {
         this.precio = precio;
         this.stock = stock;
         this.imagen = imagen;
+        this.descuento = descuento;
     }
 
     public Integer getIdproducto() {
@@ -158,6 +164,14 @@ public class Productos implements Serializable {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+    
+    public long getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(long descuento) {
+        this.descuento = descuento;
     }
 
     @Override

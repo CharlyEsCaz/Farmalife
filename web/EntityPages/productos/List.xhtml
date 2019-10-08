@@ -95,6 +95,13 @@
                         
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="Descuento"/>
+                            </f:facet>
+                            <h:outputText value="$#{item.descuento}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink class="btn btn-outline-primary" action="#{productosController.prepareView}" value="Ver"/>
