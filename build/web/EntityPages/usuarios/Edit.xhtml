@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+            <ui:define name="content">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <br/>
+                <h1>
+                    Editar a: #{usuariosController.selected.nombre}
+                </h1>
+                <br/>
+                
+                <h:form>
+                    <h:inputHidden class="form-control" id="iduser" value="#{usuariosController.selected.iduser}" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_iduser}"/>
+                    <div class="container">
+                            <div class="row offset-2 justify-content-end">
+                                <div class="col-5">
+                                    <h:commandLink class="btn btn-success" action="#{usuariosController.update}" value="Guardar"/>
+                                    <h:link class="btn btn-primary" outcome="View" value="Ver"/>
+                                    <h:commandLink class="btn btn-info" action="#{usuariosController.prepareList}" value="Lista de usuarios" immediate="true"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_nombre}" for="nombre" />
+                                <br/>
+                                <small>Ejemplo: Juan</small>
+                                <h:inputText class="form-control" id="nombre" value="#{usuariosController.selected.nombre}" title="#{bundle.CreateUsuariosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombre}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_correo}" for="correo" />
+                                <br/>
+                                <small>Ejemplo: juan@gmail.com</small>
+                                <h:inputText class="form-control" id="correo" value="#{usuariosController.selected.correo}" title="#{bundle.CreateUsuariosTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_correo}"/>
+                            </div>
+                         </div>
+                       
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_contraseña}" for="contraseña" />
+                                <br/>
+                                <small>Maximo 16 caracteres</small>
+                                <h:inputText     class="form-control" id="contraseña" value="#{usuariosController.selected.contraseña}" title="#{bundle.CreateUsuariosTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_contraseña}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_sexo}" for="sexo" />
+                                <br/>
+                                <small>"M" para Masculino y "F" para Femenino</small>
+                                <h:inputText class="form-control" id="sexo" value="#{usuariosController.selected.sexo}" title="#{bundle.CreateUsuariosTitle_sexo}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_sexo}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-10">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_direccion}" for="direccion" />
+                                <h:inputTextarea class="form-control" id="direccion" value="#{usuariosController.selected.direccion}" title="#{bundle.CreateUsuariosTitle_direccion}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_direccion}"/>
+                            </div>
+                        </div>
+        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_telefono}" for="telefono" />
+                                <br/>
+                                <small>10 digitos Ejemplo: 7225507825</small>
+                                <h:inputText class="form-control" id="telefono" value="#{usuariosController.selected.telefono}" title="#{bundle.CreateUsuariosTitle_telefono}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_telefono}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_codigoPostal}" for="codigoPostal" />
+                                <br/>
+                                <small>5 digitos Ejemplo: 51680</small>
+                                <h:inputText class="form-control" id="codigoPostal" value="#{usuariosController.selected.codigoPostal}" title="#{bundle.CreateUsuariosTitle_codigoPostal}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_codigoPostal}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_rol}" for="rol" />
+                                <br/>
+                                <small>"admin" para Administrador "client" para Cliente</small>
+                                <h:inputText class="form-control" id="rol" value="#{usuariosController.selected.rol}" title="#{bundle.CreateUsuariosTitle_rol}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_rol}"/>
+                            </div>
+                        </div>
+                        
+                   </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body> 
+    
+    
+
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+     <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+            
+            <ui:define name="content">
+                
+                <br/>
+                <h1>
+                    #{usuariosController.selected.nombre}
+                </h1>
+                <br/>
+                        
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                
+                <h:form>
+                    <div class="row">
+                        <div class="col-1">
+                           <h:link class="btn btn-success" outcome="Edit" value="Editar"/>
+                        </div>
+  
+                        <div class="col-1">
+                           <h:commandLink class="btn btn-danger" action="#{usuariosController.destroyAndView}" value="Eliminar"/>
+                        </div>
+                        
+                        <div class="col-2">
+                           <h:commandLink class="btn btn-info" action="#{usuariosController.prepareList}" value="Lista de usuarios"/>
+                        </div>
+                    </div>
+                </h:form>
+                
+                <br/>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <td>#{usuariosController.selected.iduser}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_nombre}</th>
+                            <td>#{usuariosController.selected.nombre}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_correo}</th>
+                            <td>#{usuariosController.selected.correo}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_sexo}</th>
+                            <td>#{usuariosController.selected.sexo}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_direccion}</th>
+                            <td>#{usuariosController.selected.direccion}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_telefono}</th>
+                            <td>#{usuariosController.selected.telefono}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_codigoPostal}</th>
+                            <td>#{usuariosController.selected.codigoPostal}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">#{bundle.ViewUsuariosLabel_rol}</th>
+                            <td>#{usuariosController.selected.rol}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                
+            </ui:define>
+        </ui:composition>
+    </h:body>
+    
+
+</html>

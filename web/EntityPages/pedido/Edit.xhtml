@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+            <ui:define name="content">
+                
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                
+                <br/>
+                <h1>
+                    Editar Pedido: #{pedidoController.selected.idpedido}
+                </h1>
+                <br/>
+                
+                <h:form>
+                    <h:inputHidden id="idpedido" value="#{pedidoController.selected.idpedido}"/>
+                    
+                    <div class="container">
+                        <div class="row offset-2 justify-content-end">
+                            <div class="col-5">
+                                <h:commandLink class="btn btn-success" action="#{pedidoController.update}" value="Guardar"/>
+                                <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditPedidoViewLink}"/>
+                                <h:commandLink class="btn btn-info" action="#{pedidoController.prepareList}" value="Lista de pedidos" immediate="true"/>
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreatePedidoLabel_fechaCompra}" for="fechaCompra" />
+                                <br/>
+                                <small>MM/dd/YYYY Ejemplo: 08/29/1998</small><br/>
+                                <h:inputText id="fechaCompra" value="#{pedidoController.selected.fechaCompra}" title="#{bundle.CreatePedidoTitle_fechaCompra}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_fechaCompra}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" /></h:inputText>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreatePedidoLabel_subtotal}" for="subtotal" />
+                                <br/>
+                                <small>Solo numeros. Ejemplo: 204.5</small><br/>
+                                <h:inputText id="subtotal" value="#{pedidoController.selected.subtotal}" title="#{bundle.CreatePedidoTitle_subtotal}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_subtotal}"/>
+                            </div>
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreatePedidoLabel_descuento}" for="descuento" />
+                                <br/>
+                                <small>Solo numeros. Ejemplo: 204.5</small><br/>
+                                <h:inputText id="descuento" value="#{pedidoController.selected.descuento}" title="#{bundle.CreatePedidoTitle_descuento}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_descuento}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreatePedidoLabel_total}" for="total" />
+                               <br/>
+                               <small>Solo numeros. Ejemplo: 204.5</small><br/>
+                               <h:inputText id="total" value="#{pedidoController.selected.total}" title="#{bundle.CreatePedidoTitle_total}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_total}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreatePedidoLabel_estado}" for="estado" />
+                               <br/>
+                               <small>Ordenado, En Envio, Entregado,Cancelado</small><br/>
+                               <h:inputText id="estado" value="#{pedidoController.selected.estado}" title="#{bundle.CreatePedidoTitle_estado}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_estado}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreatePedidoLabel_idCliente}" for="idCliente" />
+                                <br/>
+                                <h:selectOneMenu id="idCliente" value="#{pedidoController.selected.idCliente}" title="#{bundle.CreatePedidoTitle_idCliente}" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_idCliente}">
+                                    <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+    
+
+</html>

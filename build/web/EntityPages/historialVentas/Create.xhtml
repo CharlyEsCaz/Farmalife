@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+            <ui:define name="content">
+                
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                
+                <br/>
+                <h1>
+                    Registrar venta
+                </h1>
+                <br/>
+                
+                <h:form>
+                   <h:inputHidden id="idVenta" value="#{historialVentasController.selected.idVenta}"/>
+                    
+                   <div class="container">
+                       <div class="row offset-2 justify-content-end">
+                            <div class="col-5">
+                                <h:commandLink class="btn btn-success" action="#{historialVentasController.create}" value="Guardar" />
+                                <h:commandLink class="btn btn-info" action="#{historialVentasController.prepareList}" value="Historial de ventas" immediate="true"/>
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_fechaCompra}" for="fechaCompra" />
+                                <br/>
+                                <small>MM/dd/YYYY Ejemplo: 08/29/1998</small><br/>
+                                <h:inputText id="fechaCompra" value="#{historialVentasController.selected.fechaCompra}" title="#{bundle.CreateHistorialVentasTitle_fechaCompra}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_fechaCompra}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:inputText>
+                            </div>
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_fechaEntrega}" for="fechaEntrega" />
+                                <br/>
+                                <small>MM/dd/YYYY Ejemplo: 08/29/1998</small><br/>
+                                <h:inputText id="fechaEntrega" value="#{historialVentasController.selected.fechaEntrega}" title="#{bundle.CreateHistorialVentasTitle_fechaEntrega}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_fechaEntrega}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:inputText>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_estadoFinal}" for="estadoFinal" />
+                                <br/>
+                                <small>Ordenado, En Envio, Entregado,Cancelado</small><br/>
+                                <h:inputText id="estadoFinal" value="#{historialVentasController.selected.estadoFinal}" title="#{bundle.CreateHistorialVentasTitle_estadoFinal}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_estadoFinal}"/>
+                            </div>
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_comentario}" for="comentario" /><br/>
+                                <h:inputText id="comentario" value="#{historialVentasController.selected.comentario}" title="#{bundle.CreateHistorialVentasTitle_comentario}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_comentario}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                 <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_idpedido}" for="idpedido" /><br/>
+                                 <h:selectOneMenu id="idpedido" value="#{historialVentasController.selected.idpedido}" title="#{bundle.CreateHistorialVentasTitle_idpedido}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_idpedido}">
+                                     <f:selectItems value="#{pedidoController.itemsAvailableSelectOne}"/>
+                                 </h:selectOneMenu>
+                            </div>
+                            
+                            <div class="col-5">
+                                 <h:outputLabel value="#{bundle.CreateHistorialVentasLabel_idcliente}" for="idcliente" /><br/>
+                                 <h:selectOneMenu id="idcliente" value="#{historialVentasController.selected.idcliente}" title="#{bundle.CreateHistorialVentasTitle_idcliente}" required="true" requiredMessage="#{bundle.CreateHistorialVentasRequiredMessage_idcliente}">
+                                     <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                                 </h:selectOneMenu>
+                            </div>
+                            
+                        </div>
+                   </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+    
+
+</html>

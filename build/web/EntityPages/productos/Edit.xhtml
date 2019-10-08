@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+
+            <ui:define name="content">
+                
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                
+                <br/>
+                <h1>
+                    Editar a: #{productosController.selected.nombre}
+                </h1>
+                <br/>
+                
+                <h:form>
+                    <h:inputHidden id="idproducto" value="#{productosController.selected.idproducto}"/>
+                    
+                    <div class="container">
+                        
+                        <div class="row offset-2 justify-content-end">
+                                <div class="col-5">
+                                    <h:commandLink class="btn btn-success" action="#{productosController.update}" value="Guardar"/>
+                                    <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditProductosViewLink}"/>
+                                    <h:commandLink class="btn btn-info" action="#{productosController.prepareList}" value="Lista de productos" immediate="true"/>
+                                </div>
+                        </div>
+                        <br/>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateProductosLabel_nombre}" for="nombre" />
+                                <br/>
+                                <small>Ejemplo: Exalver</small><br/>
+                                <h:inputText id="nombre" value="#{productosController.selected.nombre}" title="#{bundle.CreateProductosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_nombre}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateProductosLabel_laboratorio}" for="laboratorio" />
+                                <br/>
+                                <small>Ejemplo: Maver</small><br/>
+                                <h:inputText id="laboratorio" value="#{productosController.selected.laboratorio}" title="#{bundle.CreateProductosTitle_laboratorio}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_laboratorio}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-10">
+                                <h:outputLabel value="#{bundle.CreateProductosLabel_descripcion}" for="descripcion" /><br/>
+                                <h:inputTextarea id="descripcion" value="#{productosController.selected.descripcion}" title="#{bundle.CreateProductosTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_descripcion}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateProductosLabel_categoria}" for="categoria" />
+                               <br/>
+                               <small>Similar , Patente o GI</small><br/>
+                               <h:inputText id="categoria" value="#{productosController.selected.categoria}" title="#{bundle.CreateProductosTitle_categoria}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_categoria}"/>
+                            </div>
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateProductosLabel_precio}" for="precio" />
+                               <br/>
+                               <small>Solo numeros. Ejemplo: 204.5</small><br/>
+                               <h:inputText id="precio" value="#{productosController.selected.precio}" title="#{bundle.CreateProductosTitle_precio}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_precio}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="row offset-2 justify-content-start">
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateProductosLabel_stock}" for="stock" />
+                               <br/>
+                               <small>Solo numeros enteros. Ejemplo: 100</small><br/>
+                               <h:inputText id="stock" value="#{productosController.selected.stock}" title="#{bundle.CreateProductosTitle_stock}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_stock}"/>
+                            </div>
+                            <div class="col-5">
+                               <h:outputLabel value="#{bundle.CreateProductosLabel_imagen}" for="imagen" />
+                               <br/>
+                               <small>resources/img/products/nombre.jpg</small><br/>
+                               <h:inputText id="imagen" value="#{productosController.selected.imagen}" title="#{bundle.CreateProductosTitle_imagen}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_imagen}"/>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+    
+
+</html>

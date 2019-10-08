@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../../Templates/MasterTemplate.xhtml">
+            
+            <ui:define name="content">
+                
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                
+                <br/>
+                <h1>
+                    Venta: #{historialVentasController.selected.idVenta}
+                </h1>
+                <br/>
+                   
+                <h:form>
+                    
+                    <div class="row">
+                        <div class="col-1">
+                           <h:link class="btn btn-success" outcome="Edit" value="Editar"/>
+                        </div>
+  
+                        <div class="col-1">
+                           <h:commandLink class="btn btn-danger" action="#{historialVentasController.destroyAndView}" value="Eliminar"/>
+                        </div>
+                        
+                        <div class="col-2">
+                           <h:commandLink class="btn btn-info" action="#{historialVentasController.prepareList}" value="Historial de ventas"/>
+                        </div>
+                    </div> 
+                    
+                </h:form>
+                
+                <br/>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <td>#{historialVentasController.selected.idVenta}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fecha Compra</th>
+                            <td>
+                                <h:outputText value="#{historialVentasController.selected.fechaCompra}" title="#{bundle.ViewHistorialVentasTitle_fechaCompra}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">Fecha Emtrega</th>
+                            <td>
+                                <h:outputText value="#{historialVentasController.selected.fechaEntrega}" title="#{bundle.ViewHistorialVentasTitle_fechaEntrega}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">Estado final</th>
+                            <td>#{historialVentasController.selected.estadoFinal}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">Comentario</th>
+                            <td>#{historialVentasController.selected.comentario}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">Pedido</th>
+                            <td>
+                               <h:outputText value="#{historialVentasController.selected.idpedido}" title="#{bundle.ViewHistorialVentasTitle_idpedido}"/>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">Cliente</th>
+                            <td>
+                                <h:outputText value="#{historialVentasController.selected.idcliente}" title="#{bundle.ViewHistorialVentasTitle_idcliente}"/>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+   
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+    
+
+</html>
