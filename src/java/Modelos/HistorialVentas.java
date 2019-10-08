@@ -166,7 +166,7 @@ public class HistorialVentas implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.HistorialVentas[ idVenta=" + idVenta + " ]";
+        return "" + idVenta;
     }
     
 }

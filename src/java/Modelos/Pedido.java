@@ -182,7 +182,7 @@ public class Pedido implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.Pedido[ idpedido=" + idpedido + " ]";
+        return ""+idpedido;
     }
     
 }

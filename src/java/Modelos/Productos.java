@@ -182,7 +182,7 @@ public class Productos implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.Productos[ idproducto=" + idproducto + " ]";
+        return nombre;
     }
     
 }

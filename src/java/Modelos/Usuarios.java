@@ -243,7 +243,7 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.Usuarios[ iduser=" + iduser + " ]";
+        return nombre;
     }
     
 }
