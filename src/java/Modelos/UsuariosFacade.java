@@ -5,6 +5,7 @@
  */
 package Modelos;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +27,11 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
 
     public UsuariosFacade() {
         super(Usuarios.class);
+    }
+    
+    public List<Usuarios> validar(Usuarios current){
+        return em.createNamedQuery("Usuarios.validar").setParameter("correo",current.getCorreo())
+                .setParameter("contraseña", current.getContraseña()).getResultList();
     }
     
 }

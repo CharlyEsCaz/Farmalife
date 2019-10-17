@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      >
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="Templates/MasterTemplate.xhtml">
+            <ui:define name="content">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <br/>
+                <br/>
+               
+                <div class="container shadow-lg">
+                     <br/>
+                    <div class="row justify-content-center">
+                        <h1>Ingresar</h1>
+                    </div>
+                    <br/>
+                <h:form>
+                      
+                        <div class="row offset-2 justify-content-start">
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_correo}" for="correo" />
+                                <br/>
+                                <h:inputText class="form-control" id="correo" value="#{usuariosController.selected.correo}" title="#{bundle.CreateUsuariosTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_correo}"/>
+                            </div>
+                            
+                            <div class="col-5">
+                                <h:outputLabel value="#{bundle.CreateUsuariosLabel_contraseña}" for="contraseña" />
+                                <br/>
+                                <h:inputSecret class="form-control" id="contraseña" value="#{usuariosController.selected.contraseña}" title="#{bundle.CreateUsuariosTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_contraseña}"/>
+                            </div>
+                        </div>
+                    
+                        <br/>
+                        <div class="row offset-5 justify-content-end">
+                            
+                            <div class="col-5">
+                                <h:commandButton class="btn btn-primary" action="#{usuariosController.ingresar}" value="Ingresar"></h:commandButton>
+                            </div>
+ 
+                        </div>
+                    
+                 </h:form>
+                    <br/>
+                    <br/>
+                    
+                </div>
+                  
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

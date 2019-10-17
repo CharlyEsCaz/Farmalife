@@ -4,6 +4,7 @@ import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -70,6 +71,8 @@ public class UsuariosController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
+    
+ 
 
     public String prepareCreate() {
         current = new Usuarios();
@@ -82,6 +85,27 @@ public class UsuariosController implements Serializable {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuariosCreated"));
             return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    public String ingresar() {
+        Usuarios  user=null;
+        try {
+            String ok="OK";
+            List<Usuarios>  lista = ejbFacade.validar(current);
+            for (Usuarios u: lista) {
+                user=u;
+            }
+            if(user!=null){
+               ok="Encontrado";
+            }else{
+                JsfUtil.addErrorMessage("Usuario o password incorrecto");
+                ok= "Error";
+            }
+            return ok;
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;

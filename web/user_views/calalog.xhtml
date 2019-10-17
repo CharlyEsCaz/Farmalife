@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    
+    <h:head>
+        <title>Farmaline | Usuarios</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <body>
+
+        <ui:composition template="./../Templates/MasterTemplate.xhtml">
+            
+            <ui:define name="top">
+                <ui:include src="./../Templates/header_template_client.xhtml" />
+            </ui:define>
+            
+            <ui:define name="content">
+                    
+                <!--<h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>-->
+                    
+                    <br/>
+                    <h1>
+                        Catalogo de productos
+                    </h1>
+                    <br/>
+                    
+                <h:form styleClass="jsfcrud_list_form">        
+                    
+                    <h:dataTable class="table" value="#{productosController.items}" var="item">
+                                
+                        <h:column>
+                            
+                            <img src="../#{item.imagen}" alt="Not Found" width="100x" height="100px"></img>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Laboratorio"/>
+                            </f:facet>
+                            <h:outputText value="#{item.laboratorio}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Categoria"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categoria}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Precio"/>
+                            </f:facet>
+                            <h:outputText value="$#{item.precio}"/>
+                        </h:column>
+                        
+                         <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Descuento"/>
+                            </f:facet>
+                            <h:outputText value="$#{item.descuento}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Stock"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stock}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <h:commandLink class="btn btn-outline-primary" action="#{productosController.prepareViewCatalog}" value="Detalles"/>
+                            <h:outputText value=" "/>
+                        </h:column>
+                        
+                       
+                    </h:dataTable>
+                    
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <h:commandLink  class="page-link" action="#{productosController.previous}" value="Anterior" rendered="#{productosController.pagination.hasPreviousPage}"/>
+                            </li>
+                            <li class="page-item">
+                                <h:outputText class="page-link" value="#{productosController.pagination.pageFirstItem + 1}..#{productosController.pagination.pageLastItem + 1}/#{productosController.pagination.itemsCount}"/>
+                            </li>            
+                            <li class="page-item">
+                                <h:commandLink class="page-link" action="#{productosController.next}" value="Siguiente" rendered="#{productosController.pagination.hasNextPage}"/>
+                            </li>
+                        </ul>
+                    </nav>
+                </h:form>    
+                    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

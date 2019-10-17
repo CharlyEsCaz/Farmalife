@@ -4,6 +4,7 @@ import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,6 +27,7 @@ public class ProductosController implements Serializable {
     private Modelos.ProductosFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private String today;
 
     public ProductosController() {
     }
@@ -64,8 +66,21 @@ public class ProductosController implements Serializable {
         recreateModel();
         return "List";
     }
+    
+    public String Today() {
+        java.util.Date fecha = new Date();
+        this.today = fecha.getMonth()+"/"+fecha.getDay()+"/"+fecha.getYear();
+        return today;
+    }
+    
 
     public String prepareView() {
+        current = (Productos) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "View";
+    }
+    
+    public String prepareViewCatalog() {
         current = (Productos) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";

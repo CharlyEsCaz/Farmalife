@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="user_views/View.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="user_views/List.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="Templates/MasterTemplate.xhtml" x="884" y="236" zoom="true"/>
+        <Node id="EntityPages/pedido/Create.xhtml" x="1532" y="54" zoom="true"/>
+        <Node id="EntityPages/usuarios/List.xhtml" x="426" y="85" zoom="true"/>
+        <Node id="catalog.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="EntityPages/historialVentas/List.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="EntityPages/productos/List.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="ingresar.xhtml" x="148" y="49" zoom="true"/>
+        <Node id="EntityPages/usuarios/View.xhtml" x="466" y="232" zoom="true"/>
+        <Node id="Templates/header_template.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="List.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="template.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="EntityPages/productos/Edit.xhtml" x="752" y="173" zoom="true"/>
+        <Node id="EntityPages/historialVentas/Edit.xhtml" x="1828" y="190" zoom="true"/>
+        <Node id="user_views/ViewPedido.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="EntityPages/productos/Create.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="index.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="EntityPages/usuarios/Edit.xhtml" x="568" y="315" zoom="true"/>
+        <Node id="EntityPages/productos/View.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="EntityPages/historialVentas/View.xhtml" x="1368" y="134" zoom="true"/>
+        <Node id="EntityPages/pedido/Edit.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="Templates/header_template_client.xhtml" x="430" y="127" zoom="true"/>
+        <Node id="index_client.xhtml" x="137" y="159" zoom="true"/>
+        <Node id="EntityPages/pedido/View.xhtml" x="1759" y="111" zoom="true"/>
+        <Node id="session_ok.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="user_views/calalog.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="EntityPages/pedido/List.xhtml" x="1515" y="208" zoom="true"/>
+        <Node id="EntityPages/historialVentas/Create.xhtml" x="1814" y="254" zoom="true"/>
+        <Node id="EntityPages/usuarios/Create.xhtml" x="650" y="750" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations">
+        <Node id="ingresar.xhtml" x="148" y="49" zoom="true"/>
+        <Node id="index_client.xhtml" x="137" y="159" zoom="true"/>
+    </Scope>
+</Scene>

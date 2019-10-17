@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="../Templates/MasterTemplate.xhtml">
+            <ui:define name="content">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                 <div class="container mt-5">
+                     <div class="row">
+                         <div class="col-3">
+                             <img class="w-100 h-100" src="../#{productosController.selected.imagen}" alt="Not Found"></img>
+                         </div> 
+                         <div class="col-6">
+                             <div class="row">
+                                     <h1>#{productosController.selected.nombre}</h1>
+                             </div>
+                             <div class="row">
+                                 <h5>Laboratorio:</h5>
+                             </div>
+                             <div class="row">
+                                 <p> #{productosController.selected.laboratorio}</p>
+                             </div>
+                             <div class="row">
+                                 <h5>Categoria:</h5>
+                             </div>
+                             <div class="row">
+                                 <p> #{productosController.selected.categoria}</p>
+                             </div>
+                             <div class="row">
+                                 <h5>Descripcion:</h5>
+                             </div>
+                             <div class="row">
+                                 <p> #{productosController.selected.descripcion}</p>
+                             </div>
+    
+                         </div>
+                         
+                         <div class="col-3">
+                             <div class="row">
+                                 <h1> $ #{productosController.selected.precio}</h1>
+                             </div>
+                             <div class="row">
+                                 <div class="col">
+                                     <p>Descuento: </p>
+                                 </div>
+                                 <div class="col">
+                                     <h5> $ #{productosController.selected.descuento}</h5>
+                                 </div>
+ 
+                             </div>
+                             <div class="row">
+                                 <div class="col">
+                                     <button type="button" class="btn btn-success">Pedir</button>
+                                     <!--
+                                     <h:form>
+                                        <h:inputHidden id="idpedido" value="1"/>
+                                        <h:inputHidden id="fechaCompra" value="10/10/2019" required="true" requiredMessage="#{bundle.CreatePedidoRequiredMessage_fechaCompra}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" /></h:inputHidden>
+                                        <h:inputHidden id="subtotal" value="100"/>
+                                        <h:inputHidden id="descuento" value="50"/>
+                                        <h:inputHidden id="total" value="50"/>
+                                        <h:inputHidden id="estado" value="Ordenado"/>
+                                        <h:inputHidden id="idCliente" value="1"/>                                        
+                                        </h:form>
+                                      -->
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>   
+
+    
+
+</html>

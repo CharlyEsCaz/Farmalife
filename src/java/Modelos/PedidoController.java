@@ -4,6 +4,7 @@ import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -26,8 +27,11 @@ public class PedidoController implements Serializable {
     private Modelos.PedidoFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private String today;
 
     public PedidoController() {
+        java.util.Date fecha = new Date();
+        this.today = fecha.getMonth()+"/"+fecha.getDay()+"/"+fecha.getYear();
     }
 
     public Pedido getSelected() {
@@ -70,6 +74,12 @@ public class PedidoController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
+    
+    public String prepareViewCliente() {
+        current = (Pedido) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "ViewPedido";
+    }
 
     public String prepareCreate() {
         current = new Pedido();
@@ -77,7 +87,21 @@ public class PedidoController implements Serializable {
         return "Create";
     }
 
+    
     public String create() {
+        try {
+            getFacade().create(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PedidoCreated"));
+            return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    public String createPedido() {
+        current = new Pedido();
+        selectedItemIndex = -1;
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PedidoCreated"));

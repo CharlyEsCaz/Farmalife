@@ -39,23 +39,27 @@ and open the template in the editor.
                         <li class="nav-item">
                             <a class="nav-link" href="http://localhost:8080/Farmalife/faces/EntityPages/historialVentas/List.xhtml">Ventas</a>
                         </li>
-                         <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Cliente
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="http://localhost:8080/Farmalife/faces/user_views/calalog.xhtml">Catalogo</a>
+                                <a class="dropdown-item" href="http://localhost:8080/Farmalife/faces/user_views/List.xhtml">Mis pedidos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown offset-11">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                Mi perfil
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Ver Perfil</a>
-                                <a class="dropdown-item" href="#">Ajustes</a>
-                                <a class="dropdown-item" href="#">Cerrar sesion</a>
+                                <a class="dropdown-item" href="http://localhost:8080/Farmalife/faces/ingresar.xhtml">Iniciar sesion</a>
+                                
                             </div>
                         </li>
                     </ul>
                         
                 </div>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar produto" aria-label="Search"/>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
     </h:body>

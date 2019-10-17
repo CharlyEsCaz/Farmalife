@@ -59,15 +59,15 @@ public class Pedido implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "subtotal")
-    private long subtotal;
+    private double subtotal;
     @Basic(optional = false)
     @NotNull
     @Column(name = "descuento")
-    private long descuento;
+    private double descuento;
     @Basic(optional = false)
     @NotNull
     @Column(name = "total")
-    private long total;
+    private double total;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -111,27 +111,27 @@ public class Pedido implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
-    public long getSubtotal() {
+    public double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(long subtotal) {
+    public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
     }
 
-    public long getDescuento() {
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(long descuento) {
+    public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
 
-    public long getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(long total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 

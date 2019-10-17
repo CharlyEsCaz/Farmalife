@@ -173,6 +173,10 @@ public class Productos implements Serializable {
     public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
+    
+    public double getTotal() {
+        return (precio-descuento);
+    }
 
     @Override
     public int hashCode() {
