@@ -6,98 +6,87 @@
     <body>
 
         <ui:composition template="./Templates/MasterTemplate.xhtml">
-
+            
             <ui:define name="content">
                 
                 <!-- Tilte-->
                 <div class="conrainer">
-                    <div class="row align-items-center justify-content-center justify-content-around">
+                    <div class="row align-items-center justify-content-center justify-content-around mt-5">
                         <h1>Bienvenido #{sessionScope.usuario.nombre} </h1>
                     </div>
                 </div>
                 
                 
-                <div class="conrainer">
+                <div class="container mt-5">
                     <div class="row  justify-content-center">
-                        <div class="col">
+                        <div class="col-12">
+                            
+                            
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
                                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Acerca de nosotros
+                                        Usuarios
                                       </button>
                                     </h2>
                                   </div>
-
                                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
-                                      Descripcion
+                                      <a href="http://localhost:8080/Farmalife/faces/EntityPages/usuarios/List.xhtml">Ver lista de usuarios</a>
                                     </div>
                                   </div>
                                 </div>
+                                
+                                
                                 <div class="card">
                                   <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
                                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Mision
+                                        Productos
                                       </button>
                                     </h2>
                                   </div>
                                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
-                                      Descripcion
+                                       <a href="http://localhost:8080/Farmalife/faces/EntityPages/productos/List.xhtml">Ver lista de productos</a>
                                     </div>
                                   </div>
                                 </div>
+                                
+                                
                                 <div class="card">
                                   <div class="card-header" id="headingThree">
                                     <h2 class="mb-0">
                                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Vision
+                                        Pedidos
                                       </button>
                                     </h2>
                                   </div>
                                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                      Descripcion
+                                        <a href="http://localhost:8080/Farmalife/faces/EntityPages/pedidos/List.xhtml">Ver lista de pedidos</a>
                                     </div>
                                   </div>
                                 </div>
+                                
+                                <div class="card">
+                                  <div class="card-header" id="headingFour">
+                                    <h2 class="mb-0">
+                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        Ventas
+                                      </button>
+                                    </h2>
+                                  </div>
+                                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <a href="http://localhost:8080/Farmalife/faces/EntityPages/historialVentas/List.xhtml">Ver ventas</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                
                               </div>
-                        </div>
-                        <div class="col">
-                            <h5>Contacto</h5>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="resources/img/fbicon.png" width="25" height="25"></img>
-                                    </div>
-                                    <div class="col">
-                                        <p>Farmahorro Tixca Oficial</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="resources/img/wticon.jpg" width="25" height="25"></img>
-                                    </div>
-                                    <div class="col">
-                                        <p>(722)58586</p>
-                                        <p>(722)68696</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="resources/img/mapsicon.png" width="25" height="25"></img>
-                                    </div>
-                                    <div class="col">
-                                        <p>Calle 4 Noviembre s/n</p>
-                                        <p>Colonia Centro</p>
-                                        <p>Texcaltitlan, Estado de Mexico</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>

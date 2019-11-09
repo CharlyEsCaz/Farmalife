@@ -106,7 +106,7 @@ public class Login implements Serializable {
     public void cerrarSesion(){
         try {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("ingresar.xhtml");
             
         } catch (Exception e) {
         }
