@@ -31,13 +31,13 @@
                             <div class="col-5">
                                 <h:outputLabel value="#{bundle.CreateUsuariosLabel_correo}" for="correo" />
                                 <br/>
-                                <h:inputText class="form-control" id="correo" value="#{usuariosController.selected.correo}" title="#{bundle.CreateUsuariosTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_correo}"/>
+                                <h:inputText class="form-control" id="correo" value="#{login.username}" title="#{bundle.CreateUsuariosTitle_correo}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_correo}"/>
                             </div>
                             
                             <div class="col-5">
                                 <h:outputLabel value="#{bundle.CreateUsuariosLabel_contraseña}" for="contraseña" />
                                 <br/>
-                                <h:inputSecret class="form-control" id="contraseña" value="#{usuariosController.selected.contraseña}" title="#{bundle.CreateUsuariosTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_contraseña}"/>
+                                <h:inputSecret class="form-control" id="contraseña" value="#{login.password}" title="#{bundle.CreateUsuariosTitle_contraseña}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_contraseña}"/>
                             </div>
                         </div>
                     
@@ -45,7 +45,7 @@
                         <div class="row offset-5 justify-content-end">
                             
                             <div class="col-5">
-                                <h:commandButton class="btn btn-primary" action="#{usuariosController.ingresar}" value="Ingresar"></h:commandButton>
+                                <h:commandButton class="btn btn-primary" action="#{login.Acceso()}" value="Ingresar"></h:commandButton>
                             </div>
  
                         </div>

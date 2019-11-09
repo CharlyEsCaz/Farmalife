@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -32,6 +33,17 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
     public List<Usuarios> validar(Usuarios current){
         return em.createNamedQuery("Usuarios.validar").setParameter("correo",current.getCorreo())
                 .setParameter("contraseña", current.getContraseña()).getResultList();
+    }
+    
+    public Usuarios Buscar(String usu, String pas){
+        Query consulta = em.createNamedQuery("Usuarios.validar",Usuarios.class)
+                .setParameter("correo", usu)
+                .setParameter("contraseña", pas);
+        List<Usuarios> lista = consulta.getResultList();
+        if(!lista.isEmpty()){
+            return lista.get(0);
+        }
+        return null;
     }
     
 }
