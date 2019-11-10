@@ -11,13 +11,15 @@
             </ui:define>
             
             <ui:define name="content">
-                <div class="conrainer">
-                    <div class="row align-items-center justify-content-center justify-content-around">
-                        <h1>Bienvenido a "Farmaline"</h1>
+                
+                <div class="container">
+                    <div class="row align-items-center justify-content-center my-5">
+                        <h1>Bienvenid@ #{sessionScope.usuario.nombre}</h1>
                     </div>
                 </div>
-                <div class="conrainer">
-                    <div class="row  justify-content-center justify-content-around">
+                
+                <div class="container">
+                    <div class="row  justify-content-center">
                         <div class="col">
                            <h4>Novedades</h4>
                            <div class="bd-example">
@@ -61,7 +63,7 @@
                                 </div>
                            </div>
                            <br></br>
-                           <a class="btn btn-primary" href="faces/catalog.xhtml">Ir a la tienda</a> 
+                           <a class="btn btn-primary" href="http://localhost:8080/Farmalife/faces/user_views/calalog.xhtml">Ir a la tienda</a> 
                         </div>
                         <div class="col">
                             <div class="accordion" id="accordionExample">

@@ -59,8 +59,7 @@
  
                              </div>
                              <div class="row">
-                                 <div class="col">
-                                     <button type="button" class="btn btn-success">Pedir</button>
+                                 <div class="col">  
                                      <!--
                                      <h:form>
                                         <h:inputHidden id="idpedido" value="1"/>
@@ -70,9 +69,9 @@
                                         <h:inputHidden id="descuento" value="50"/>
                                         <h:inputHidden id="total" value="50"/>
                                         <h:inputHidden id="estado" value="Ordenado"/>
-                                        <h:inputHidden id="idCliente" value="1"/>                                        
-                                        </h:form>
-                                      -->
+                                        <h:inputHidden id="idCliente" value="#{sessionScope.usuario.iduser}"/>
+                                        <h:commandButton class="btn btn-success" action="#" value="Pedir"></h:commandButton>                                        
+                                     </h:form>-->
                                  </div>
                              </div>
                          </div>

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package bean;
-
 import Modelos.UsuariosFacade;
 import Modelos.Usuarios;
 import java.io.IOException;
@@ -83,13 +82,13 @@ public class Login implements Serializable {
             httpservlet.getSession().setAttribute("usuario", usuautenticado);
             switch(usuautenticado.getRol()){
                 case "Administrador":
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("index_admin.xhtml");
                     break;
                 case "Cliente":
                     FacesContext.getCurrentInstance().getExternalContext().redirect("index_client.xhtml");
                     break;
                 default:
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("index_client.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                     break;
             }
             
