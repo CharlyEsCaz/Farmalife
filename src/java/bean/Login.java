@@ -78,6 +78,7 @@ public class Login implements Serializable {
         usuautenticado = usufacade.Buscar(username, password);
         if(usuautenticado!=null){
             httpservlet.getSession().setAttribute("nombre", usuautenticado.getNombre());
+            httpservlet.getSession().setAttribute("id", usuautenticado.getIduser());
             httpservlet.getSession().setAttribute("rol", usuautenticado.getRol());
             httpservlet.getSession().setAttribute("usuario", usuautenticado);
             switch(usuautenticado.getRol()){

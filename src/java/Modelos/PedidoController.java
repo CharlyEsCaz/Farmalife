@@ -45,6 +45,8 @@ public class PedidoController implements Serializable {
     private PedidoFacade getFacade() {
         return ejbFacade;
     }
+    
+ 
 
     public PaginationHelper getPagination() {
         if (pagination == null) {
@@ -67,6 +69,16 @@ public class PedidoController implements Serializable {
     public String prepareList() {
         recreateModel();
         return "List";
+    }
+    
+    public String Now(int val) {
+        Date now = new Date();
+        String resul = now.getMonth()+"/"+now.getDay()+"/"+ now.getYear();
+        return resul;
+    }
+      
+    public double calcTotal( double num1, double num2) {
+        return num1-num2;
     }
 
     public String prepareView() {

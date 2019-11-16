@@ -86,7 +86,7 @@ public class Pedido implements Serializable {
         this.idpedido = idpedido;
     }
 
-    public Pedido(Integer idpedido, Date fechaCompra, long subtotal, long descuento, long total, String estado) {
+    public Pedido(Integer idpedido, Date fechaCompra, double subtotal, double descuento, double total, String estado) {
         this.idpedido = idpedido;
         this.fechaCompra = fechaCompra;
         this.subtotal = subtotal;
