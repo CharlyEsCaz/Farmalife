@@ -2,6 +2,7 @@ package Modelos;
 
 import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
+import java.io.File;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,6 +17,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import org.primefaces.model.UploadedFile;
 
 @Named("productosController")
 @SessionScoped
@@ -23,6 +25,18 @@ public class ProductosController implements Serializable {
 
     private Productos current;
     private DataModel items = null;
+    
+    private UploadedFile file;
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+    
+   
     @EJB
     private Modelos.ProductosFacade ejbFacade;
     private PaginationHelper pagination;
@@ -61,6 +75,7 @@ public class ProductosController implements Serializable {
         }
         return pagination;
     }
+   
 
     public String prepareList() {
         recreateModel();
@@ -93,6 +108,14 @@ public class ProductosController implements Serializable {
     }
 
     public String create() {
+        /*
+        if(file.getContentType().equals("image,jpg") || file.getContentType().equals("application/octet-stream")){
+            try{
+                current.setImagen("");
+            }catch(Exception e){
+            
+            }
+        }*/
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProductosCreated"));
@@ -101,6 +124,12 @@ public class ProductosController implements Serializable {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
+    }
+    
+    public String storageImage(int id){
+        String path= "img/"+id+".jpg";
+        File file2 = new File("C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web/"+path);
+        return "";
     }
 
     public String prepareEdit() {

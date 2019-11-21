@@ -106,25 +106,33 @@ public class Login implements Serializable {
     public void cerrarSesion(){
         try {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("ingresar.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("http://localhost:8080/Farmalife/faces/ingresar.xhtml");
             
         } catch (Exception e) {
         }
     }
     
-    public void verificaSesionynivel(String rol) throws IOException{
-        
+    public void verificaSesionynivel(int rol) throws IOException{
+        String v_rol= "";
+        switch(rol){
+            case 1:
+                v_rol= "Cliente";
+                break;
+            case 2:
+                v_rol= "Administrador";
+                break;
+        }
         httpservlet = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         Usuarios usu = (Usuarios) httpservlet.getSession().getAttribute("usuario");
         if(usu != null){
-            if(usu.getRol().equals(rol)){
+            if(usu.getRol().equals(v_rol)){
             }else{
-                FacesContext.getCurrentInstance().getExternalContext().redirect("sin_privilegios.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/Farmalife/faces/sin_privilegios.xhtml");
             }
             
         }else{
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/Farmalife/faces/ingresar.xhtml");
         }
     }
     

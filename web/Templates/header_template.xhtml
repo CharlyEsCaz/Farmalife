@@ -42,14 +42,9 @@ and open the template in the editor.
                             <a class="nav-link" href="http://localhost:8080/Farmalife/faces/EntityPages/historialVentas/List.xhtml">Ventas</a>
                         </li>-->
                      
-                        <li class="nav-item dropdown offset-11">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Mi perfil
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="http://localhost:8080/Farmalife/faces/index.xhtml">Cerrar sesion</a>
-                            </div>
-                        </li>
+                        <h:form>
+                             <h:commandButton class="btn btn-primary" action="#{login.cerrarSesion()}" value="Cerrar sesion"></h:commandButton>
+                        </h:form>
                     </ul>
                         
                 </div>
