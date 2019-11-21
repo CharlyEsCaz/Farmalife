@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <h:outputStylesheet name="css/jsfcrud.css"/>
@@ -24,7 +25,7 @@
                 </h1>
                 <br/>
                 
-                <h:form>
+                <h:form enctype="multipart/form-data">
                     <h:inputHidden id="idproducto" value="#{productosController.selected.idproducto}"/>
                     
                     <div class="container">
@@ -93,8 +94,7 @@
                         <div class="row offset-2 justify-content-start">
                             <div class="col-5">
                                <h:outputLabel value="#{bundle.CreateProductosLabel_imagen}" for="imagen" />
-                               <br/>
-                               <h:inputText id="imagen" value="#{productosController.selected.imagen}" title="#{bundle.CreateProductosTitle_imagen}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_imagen}"/>
+                               <p:fileUpload  mode="simple" value="#{productosController.file}"  required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_imagen}"/>   
                             </div>
                         </div>
                     </div>

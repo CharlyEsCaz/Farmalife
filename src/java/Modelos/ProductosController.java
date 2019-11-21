@@ -3,6 +3,10 @@ package Modelos;
 import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,7 +21,9 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import org.apache.commons.io.IOUtils;
 import org.primefaces.model.UploadedFile;
+
 
 @Named("productosController")
 @SessionScoped
@@ -108,27 +114,36 @@ public class ProductosController implements Serializable {
     }
 
     public String create() {
-        /*
-        if(file.getContentType().equals("image,jpg") || file.getContentType().equals("application/octet-stream")){
+        
+        if(file.getContentType().equals("image/jpeg") || file.getContentType().equals("application/octet-stream")){
             try{
-                current.setImagen("");
+                current.setImagen(storageImage((pagination.getItemsCount()) + 1));
+                getFacade().create(current);
+                JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProductosCreated"));
+                return prepareCreate();
             }catch(Exception e){
-            
+                JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                return null;
             }
-        }*/
-        try {
-            getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProductosCreated"));
-            return prepareCreate();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
         }
+        JsfUtil.addErrorMessage( ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        return null;
     }
     
     public String storageImage(int id){
-        String path= "img/"+id+".jpg";
-        File file2 = new File("C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web/"+path);
+        String path= "/resources/img/"+id+".jpg";
+        File file2 = new File("C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web"+path);
+        try (OutputStream outputStream = new FileOutputStream(file2)) {
+                IOUtils.copy(file.getInputstream(), outputStream);
+                return path;
+            } catch (FileNotFoundException e) {
+                // handle exception here
+                JsfUtil.addErrorMessage(e, "No lo encontre xD");
+            } catch (IOException e) {
+                // handle exception here
+                JsfUtil.addErrorMessage(e,"Error x_x");
+
+            }
         return "";
     }
 
@@ -139,14 +154,20 @@ public class ProductosController implements Serializable {
     }
 
     public String update() {
-        try {
-            getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProductosUpdated"));
-            return "View";
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
+        if(file.getContentType().equals("image/jpeg") || file.getContentType().equals("application/octet-stream")){
+            try{
+                current.setImagen(storageImage(current.getIdproducto()));
+                getFacade().edit(current);
+                JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ProductosCreated"));
+                return "View";
+            }catch(Exception e){
+                JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                return null;
+            }
         }
+        JsfUtil.addErrorMessage( ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        return null;
+  
     }
 
     public String destroy() {
