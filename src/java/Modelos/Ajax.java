@@ -21,8 +21,10 @@ public class Ajax {
     private ProductosFacade p_facade;
     
     private String mensaje;
+    private String producto_name;
     private String nombre;
     int id_p;
+    int id_pb;
 
     public String getMensaje() {
         return mensaje;
@@ -47,6 +49,24 @@ public class Ajax {
     public void setId_p(int id_p) {
         this.id_p = id_p;
     }
+
+    public String getProducto_name() {
+        return producto_name;
+    }
+
+    public void setProducto_name(String producto_name) {
+        this.producto_name = producto_name;
+    }
+
+    public int getId_pb() {
+        return id_pb;
+    }
+
+    public void setId_pb(int id_pb) {
+        this.id_pb = id_pb;
+    }
+    
+    
     
     public void CambiaNombreProducto(AjaxBehaviorEvent event){
         
@@ -54,6 +74,12 @@ public class Ajax {
             mensaje = "Nombre Actualizado correctamente";
         else
             mensaje = "ERROR AL ACTUALIZAR";
+    }
+    
+    public void buscarNombreProducto(AjaxBehaviorEvent event){
+        
+        Productos  pro = p_facade.find(id_pb);
+        producto_name =  pro.getNombre();
     }
     
     public Ajax() {

@@ -33,6 +33,29 @@
                         </div>
                     </div>
                     
+                    <h:form>
+                        <div class="row w-50 ml-3">
+                            <div class="col-12">
+                                <h:outputLabel value="Buscar nombre Producto" />
+                            </div>
+                            <div class="col-4">
+                                <h:inputText id="buscar" class='form-control' value="#{ajax.id_pb}" /> 
+                            </div>
+                            <div class="col-4">
+                                 <h:commandButton class="btn btn-primary" value="Buscar" >
+                                    <f:ajax 
+                                        execute="buscar" 
+                                        render="NProducto"
+                                        listener="#{ajax.buscarNombreProducto}"
+                                        />
+                                </h:commandButton>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <h:outputLabel class="badge badge-primary" style='font-size: 1rem;' id="NProducto" value="#{ajax.producto_name}"/>
+                            </div>
+                        </div>           
+                    </h:form>
+                    
                     <h:form id="nuevo">
                         <div class="row w-50 ml-3">
                             <div class="col-12">
@@ -54,7 +77,7 @@
                                 </h:commandButton>
                             </div>
                             <div class="col-12 mt-4">
-                                 <h:outputLabel  class="alert alert-primary" id="mensaje" value="#{ajax.mensaje}"/>
+                                 <h:outputLabel  class="badge badge-primary" style='font-size: 1rem;' id="mensaje" value="#{ajax.mensaje}"/>
                             </div>
                         </div>           
                     </h:form>
