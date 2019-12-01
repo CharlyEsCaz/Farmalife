@@ -8,6 +8,7 @@ package Modelos;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,4 +29,11 @@ public class ProductosFacade extends AbstractFacade<Productos> {
         super(Productos.class);
     }
     
+    public String Cambia_nombre_p(String nombre,int idproducto){
+        Query consulta = em.createNamedQuery("Productos.cambiarNombre",Productos.class)
+                .setParameter("nombre_p", nombre)
+                .setParameter("id_p", idproducto);
+        consulta.executeUpdate();
+        return "ok";
+    }
 }

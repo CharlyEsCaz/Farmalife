@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Productos.findAll", query = "SELECT p FROM Productos p")
     , @NamedQuery(name = "Productos.findByIdproducto", query = "SELECT p FROM Productos p WHERE p.idproducto = :idproducto")
     , @NamedQuery(name = "Productos.findByNombre", query = "SELECT p FROM Productos p WHERE p.nombre = :nombre")
+    , @NamedQuery(name = "Productos.cambiarNombre", query = "UPDATE Productos p set p.nombre = :nombre_p WHERE p.idproducto = :id_p")
     , @NamedQuery(name = "Productos.findByDescripcion", query = "SELECT p FROM Productos p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "Productos.findByLaboratorio", query = "SELECT p FROM Productos p WHERE p.laboratorio = :laboratorio")
     , @NamedQuery(name = "Productos.findByCategoria", query = "SELECT p FROM Productos p WHERE p.categoria = :categoria")

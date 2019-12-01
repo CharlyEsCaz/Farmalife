@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web/index_client.xhtml</file>
-            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web/Templates/header_template_client.xhtml</file>
-            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/src/java/bean/Login.java</file>
+            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/web/EntityPages/productos/List.xhtml</file>
+            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/src/java/Modelos/Productos.java</file>
+            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/src/java/Modelos/Ajax.java</file>
+            <file>file:/C:/Users/CharlyEzCas/Documents/NetBeansProjects/Farmalife/src/java/Modelos/ProductosFacade.java</file>
         </group>
     </open-files>
 </project-private>

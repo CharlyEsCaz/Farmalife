@@ -33,9 +33,35 @@
                         </div>
                     </div>
                     
+                    <h:form id="nuevo">
+                        <div class="row w-50 ml-3">
+                            <div class="col-12">
+                                <h:outputLabel value="Cambiar nombre Producto" />
+                            </div>
+                            <div class="col-4">
+                                <h:inputText class='form-control' value="#{ajax.id_p}" /> 
+                            </div>
+                            <div class="col-4">
+                                <h:inputText  class='form-control' value="#{ajax.nombre}" />
+                            </div>
+                            <div class="col-4">
+                                 <h:commandButton class="btn btn-primary" value="Modificar" >
+                                    <f:ajax 
+                                        execute="nuevo" 
+                                        render="mensaje"
+                                        listener="#{ajax.CambiaNombreProducto}"
+                                        />
+                                </h:commandButton>
+                            </div>
+                            <div class="col-12 mt-4">
+                                 <h:outputLabel  class="alert alert-primary" id="mensaje" value="#{ajax.mensaje}"/>
+                            </div>
+                        </div>           
+                    </h:form>
+                    
                     <h:outputText escape="false" value="#{bundle.ListProductosEmpty}" rendered="#{productosController.items.rowCount == 0}"/>
                     
-                    <h:dataTable class="table" value="#{productosController.items}" var="item">
+                    <h:dataTable  class="table" value="#{productosController.items}" var="item">
                         
                         <h:column>
                             <f:facet name="header">

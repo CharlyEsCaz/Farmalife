@@ -102,6 +102,7 @@ public class PedidoController implements Serializable {
     
     public String create() {
         try {
+            //current.setFechaCompra(fechaCompra);
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PedidoCreated"));
             return prepareCreate();
